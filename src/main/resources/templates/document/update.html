@@ -1,0 +1,67 @@
+<h4>Update a document</h4>
+<form th:action="@{/document/update}" th:object="${document}" method="POST">
+    <input type="hidden" th:field="*{id}">
+    <table>
+        <tr>
+            <td>
+                <label for="code">Code</label>
+            </td>
+            <td>
+                <input id="code" th:field="*{code}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Name</label>
+            </td>
+            <td>
+                <input id="name" th:field="*{name}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="year">Year</label>
+            </td>
+            <td>
+                <input id="year" th:field="*{year}" type="number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="description">Description</label>
+            </td>
+            <td>
+                <input id="description" th:field="*{description}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="author">Author</label>
+            </td>
+            <td>
+                <input id="author" th:field="*{author}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="category">Category</label>
+            </td>
+            <td>
+                <select id="category" th:field="*{category}">
+                    <option
+                            th:each="category : ${categoryList}"
+                            th:value="${category.id}"
+                            th:text="${category.name}"
+                    >
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Update">
+                <a th:href="@{/}">Back</a>
+            </td>
+        </tr>
+    </table>
+</form>
